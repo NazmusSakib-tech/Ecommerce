@@ -14,3 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','ProductController@index');
+Route::get('/contact','ProductController@contact');
+
+Route::get('/products','ProductController@products');

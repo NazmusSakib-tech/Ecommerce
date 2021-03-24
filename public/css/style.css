@@ -1,3 +1,14 @@
+
+/* Over Right CSS
+
+
+
+*/
+.bg-light {
+    background-color: #28a745!important;
+}
+
+
 .margin-top-20{
 
 
@@ -7,3 +18,11 @@
 .feature-img{
     max-height:200px;
 }
+
+.footer-bottom{
+margin-top: 20px;
+padding: 20px;
+background: #28a745;
+
+}
+
