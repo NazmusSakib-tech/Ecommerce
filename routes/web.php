@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','ProductController@index');
-Route::get('/contact','ProductController@contact');
+Route::get('/', 'ProductController@index')->name('index');
+Route::get('/contact', 'ProductController@contact')->name('contact');
 
-Route::get('/products','ProductController@products');
+Route::get('/products', 'ProductController@products')->name('products');
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/', 'AdminPagesController@index')->name('admin.index');
+    Route::get('/product/create', 'AdminPagesController@product_create')->name('admin.product.create');
+});

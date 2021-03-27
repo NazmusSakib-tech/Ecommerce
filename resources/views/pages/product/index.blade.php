@@ -23,10 +23,15 @@
                     <div class="col-md-3">
                         <div class="card">
                         <!-- <img class="card-img-top feature-img" src="{{asset('product/images/products/galaxy.png')}}" alt="Card image"> -->
+                        @php $i = 1; @endphp
                         @foreach($product->images as $image)
-
+                        
+                        @if($i >0)
                         <img class="card-img-top feature-img" src="{{asset('images/products/'.$image->image)}}" alt="Card image">
-                         @endforeach
+                        @endif
+                        
+                        @php $i--; @endphp
+                        @endforeach
 
                         <div class="card-body">
                                 <h4 class="card-title">
