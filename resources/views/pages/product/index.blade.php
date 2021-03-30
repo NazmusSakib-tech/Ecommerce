@@ -18,13 +18,13 @@
                 <h3>All Product</h3>
                 <div class="row">
 
-                @foreach($products as $product)
+                @foreach($products as $products)
 
                     <div class="col-md-3">
                         <div class="card">
                         <!-- <img class="card-img-top feature-img" src="{{asset('product/images/products/galaxy.png')}}" alt="Card image"> -->
                         @php $i = 1; @endphp
-                        @foreach($product->images as $image)
+                        @foreach($products->images as $image)
                         
                         @if($i >0)
                         <img class="card-img-top feature-img" src="{{asset('images/products/'.$image->image)}}" alt="Card image">
@@ -35,9 +35,9 @@
 
                         <div class="card-body">
                                 <h4 class="card-title">
-                                    {{$product->title}}</h4>
+                                    {{$products->title}}</h4>
                                 <p class="card-text">
-                                    Taka- {{$product->price}}</p>
+                                    Taka- {{$products->price}}</p>
                                 <a href="#" class="btn btn-primary btn-outline-warning">See Profile</a>
                             </div>
                         </div>
