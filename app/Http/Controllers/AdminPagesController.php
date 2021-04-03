@@ -19,7 +19,29 @@ class AdminPagesController extends Controller
         return view('admin.pages.product.create');
     }
 
+
+    public function manage_product(){
+      $products = Product::orderby('id', 'desc')->get();
+      return view('admin.pages.product.manage_product')->with('products', $products);
+
+    }
+
+    public function product_edit($id){
+      $product = Product::find($id);
+      return view('admin.pages.product.edit')->with('product', $product);
+
+    }
+
+    
+
     public function product_store(Request $request){
+
+      $validated = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'required',
+        'price' => 'required',
+        'quantity' => 'required',
+    ]);
 
         $product = new Product;
         $product->title = $request->title;
@@ -88,12 +110,29 @@ class AdminPagesController extends Controller
 
         return redirect()->route('admin.product.create');
     }
-}
 
-// if ($request->hasFile('file')) {
-//     $image = $request->file('file');
-//     $name = time().'.'.$image->getClientOriginalExtension();
-//     $destinationPath = public_path('/images/');
-//     $image->move($destinationPath, $name);
-//     $product->image = $name;
-// }
+    public function product_update(Request $request,$id){
+
+      $validated = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'required',
+        'price' => 'required',
+        'quantity' => 'required',
+    ]);
+
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->quantity = $request->quantity;
+        
+        $product->save();
+      
+        
+     
+
+        return redirect()->route('admin.product.manage_product');
+    }
+
+    
+}

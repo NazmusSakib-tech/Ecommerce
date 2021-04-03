@@ -21,7 +21,7 @@
   <!-- Layout styles -->
   <link rel="stylesheet" href="{{asset('css/layout_style.css')}}">
   <!-- End Layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
 </head>
 
 <body>
@@ -29,9 +29,9 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html">
+        <a class="navbar-brand brand-logo" href="{{route('admin.index')}}">
           <img src="{{asset('images/logo.svg')}}" alt="logo" /> </a>
-        <a class="navbar-brand brand-logo-mini" href="index.html">
+        <a class="navbar-brand brand-logo-mini" href="{{route('admin.index')}}">
           <img src="{{asset('images/logo-mini.svg')}}" alt="logo" /> </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -196,7 +196,7 @@
           </li>
           <li class="nav-item nav-category">Main Menu</li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{route('admin.index')}}">
               <i class="menu-icon typcn typcn-document-text"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -248,13 +248,16 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <i class="menu-icon typcn typcn-document-add"></i>
-              <span class="menu-title">User Pages</span>
+              <span class="menu-title">Manage Product</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                  <a class="nav-link" href="{{route('admin.product.manage_product')}}"> Products </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('admin.product.create')}}"> Create Product </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/samples/login.html"> Login </a>
